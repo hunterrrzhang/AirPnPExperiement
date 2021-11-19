@@ -10,7 +10,7 @@ cors = CORS(app)
 
 @cross_origin()
 
-@app.route('/api/form', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def main():
     
     if flask.request.method == 'GET':
