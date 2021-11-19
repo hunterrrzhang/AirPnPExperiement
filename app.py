@@ -5,7 +5,7 @@ import pandas as pd
 from flask_cors import CORS, cross_origin
 
     
-app = flask.Flask(__name__, static_folder='./build', static_url_path='')
+app = flask.Flask(__name__, static_folder='./build', static_url_path='/')
 cors = CORS(app)
 
 @cross_origin()
