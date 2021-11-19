@@ -45,7 +45,7 @@ const normFile = (e) => {
 const Demo = () => {
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
-        fetch('/', {
+        fetch('/api/', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
