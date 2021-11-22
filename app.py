@@ -33,12 +33,15 @@ def get_price():
         
         location = content['Location']
         print("HIiiiiiii" + str(os.getcwd()))
+        print(str(os.path.dirname(__file__)))
+        
+        # Relative path is bit different between local server and heroku, so it better to use the following method to get the path
         if location == 'Chicago':
-            bst.load_model('./my-app/models/chicago_model.bin')
+            bst.load_model(os.path.join(os.path.dirname(__file__), './models/chicago_model.bin'))
         elif location == 'New York':
-            bst.load_model('./my-app/models/newyork_model.bin')
+            bst.load_model(os.path.join(os.path.dirname(__file__), './models/newyork_model.bin'))
         elif location == 'Los Angeles':
-            bst.load_model('./my-app/models/la_model.bin')
+            bst.load_model(os.path.join(os.path.dirname(__file__), './models/la_model.bin'))
             
         all_property_types = ['property_type_Apartment','property_type_Hotel','property_type_House',
                               'property_type_Other']
