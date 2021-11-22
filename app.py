@@ -32,7 +32,7 @@ def get_price():
         bst = xgboost.Booster({'nthread' : 4})
         
         location = content['Location']
-        # print("HIiiiiiii" + str(os.getcwd()))
+        print("HIiiiiiii" + str(os.getcwd()))
         if location == 'Chicago':
             bst.load_model('./my-app/models/chicago_model.bin')
         elif location == 'New York':
