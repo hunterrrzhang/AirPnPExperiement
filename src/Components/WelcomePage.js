@@ -37,13 +37,13 @@ const WelcomePage = (props) => {
             </Space> */}
             <div className='WelcomeContent'>
                 <Space direction="vertical" align='center' size={'large'} wrap>
-                    <Text style={{'font-size': '16px'}}>Welcoming amazing guests from all over the world 🌎 to your property is fun and exciting.</Text>
-                    <Text style={{'font-size': '16px'}}>And putting your property on Airbnb allows you to meet new and cool people while having a passive income source 💰.</Text>
+                    <Text style={{'font-size': '16px'}}>Welcoming amazing Airbnb guests from all over the world 🌎 to your property is fun, exciting, and provides a passive income source 💰.</Text>
+                    {/* <Text style={{'font-size': '16px'}}>And putting your property on Airbnb allows you to meet new and cool people while having a passive income source 💰.</Text> */}
                     <Text style={{'font-size': '16px'}}>However, pricing your listing correctly might be difficult 🤔. You may have questions like…</Text>
                     {/* <br/> */}
                     <div className='questions' >
                         <Space direction="vertical" align='center' size={'small'} wrap>
-                            <Text italic keyboard>How much should I charge for 3 bedroom and 2 bathroom?</Text>
+                            <Text italic keyboard>How much should I charge for 3 bedroom?</Text>
                             <Text italic keyboard>My listing is in a great location, should I charge more?</Text>
                             <Text italic keyboard>How much extra should I charge for my great amenities?</Text>
                             {/* <Text italic>Would people pay more if I am a verified host with high ratings?</Text> */}
