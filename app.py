@@ -3,20 +3,27 @@ from flask import Flask, request
 import xgboost
 import pandas as pd
 from flask_cors import CORS, cross_origin
+import os
 
+# https://airpnp-ieee.herokuapp.com/
+# http://127.0.0.1:5000/
     
 app = flask.Flask(__name__, static_folder='./build', static_url_path='/')
 cors = CORS(app)
 
 @cross_origin()
 
-@app.route('/', methods=['GET', 'POST'])
-def main():
+@app.route('/', methods=['GET'])
+def serve():
     
-    if flask.request.method == 'GET':
+    # if flask.request.method == 'GET':
         # return(flask.render_template('main.html'))
-        return flask.send_from_directory(app.static_folder, 'index.html')
-
+    
+    # Return the html outputed from the react apple from the build folder
+    return flask.send_from_directory(app.static_folder, 'index.html')
+    
+@app.route('/api/get_price', methods=['POST'])
+def get_price():
     if flask.request.method == 'POST':
         print("connection head")
         content = request.get_json()
@@ -25,12 +32,13 @@ def main():
         bst = xgboost.Booster({'nthread' : 4})
         
         location = content['Location']
+        # print("HIiiiiiii" + str(os.getcwd()))
         if location == 'Chicago':
-            bst.load_model('models/chicago_model.bin')
+            bst.load_model('./my-app/models/chicago_model.bin')
         elif location == 'New York':
-            bst.load_model('models/newyork_model.bin')
+            bst.load_model('./my-app/models/newyork_model.bin')
         elif location == 'Los Angeles':
-            bst.load_model('models/la_model.bin')
+            bst.load_model('./my-app/models/la_model.bin')
             
         all_property_types = ['property_type_Apartment','property_type_Hotel','property_type_House',
                               'property_type_Other']
@@ -161,7 +169,7 @@ def main():
         prediction = bst.predict(d_input)[0]
         print("prediction = ", prediction)
         return prediction
-        '''
+        ''' 
     
     '''
     flask.render_template('main.html', original_input={'Bedrooms':bedrooms,

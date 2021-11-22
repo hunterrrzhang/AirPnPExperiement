@@ -1,0 +1,27 @@
+.WelcomePageContainer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 4%; 
+    padding-left: 20%; 
+    padding-right: 20%; 
+
+    margin: 0%;
+    /* visibility: hidden; */
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+}
+
+.logo{
+    max-width: 250px;
+    min-width: 15%;
+}
+
+.WelcomeContent{
+    margin-top: 3%;
+}
+
+.question{
+    font-size: 14px;
+}

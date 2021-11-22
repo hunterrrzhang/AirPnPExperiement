@@ -1,0 +1,19 @@
+/* .wrap-label {
+
+} */
+
+.ant-form-item-label {
+    /* white-space: break-spaces; */
+    /* overflow-wrap: normal; */
+    /* overflow-wrap: break-word; */
+    /* padding: 10px; */
+    /* display: flex; */
+    padding: 10px 0 0 0 !important;
+    white-space: normal;
+    /* margin-right: 14px; */
+    display: inline-block;
+    /* text-align: center; */
+    line-height: 13px;
+    /* flex-wrap: wrap; */
+    /* width: 70px; */
+  }
