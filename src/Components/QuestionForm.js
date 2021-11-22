@@ -74,7 +74,7 @@ const QuestionForm = () => {
     <div className='wrap-label'>
     <Modal title="Result" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <h3>Thank you!</h3>
-        <p>Base on our model, we recommend pricing your listing at ${result}</p>
+        <p>Base on our model, we recommend pricing your listing at ${result} per night</p>
       </Modal>
     <Form
         name="validate_other"
