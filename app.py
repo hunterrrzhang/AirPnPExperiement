@@ -5,7 +5,7 @@ import pandas as pd
 from flask_cors import CORS, cross_origin
 import os
 
-# https://airpnp-ieee.herokuapp.com/
+# https://airpnp-demo.herokuapp.com/
 # http://127.0.0.1:5000/
     
 app = flask.Flask(__name__, static_folder='./build', static_url_path='/')
@@ -91,7 +91,16 @@ def get_price():
         # List of features that will be used
         chosen_features = []
         for i in range(len(features)):
-            chosen_features.append(content[features[i]])
+            if features[i] == 'availability_90':
+                chosen_features.append(True)
+            elif features[i] == 'minimum_nights':
+                chosen_features.append(1)
+            elif features[i] == 'maximum_nights':
+                chosen_features.append(10)
+            elif features[i] == 'host_listings_count':
+                chosen_features.append(2)
+            else:
+                chosen_features.append(content[features[i]])
             
         features += all_amenities + all_response_rates + all_property_types + all_room_types + all_review_scores + all_scores
         
@@ -99,15 +108,15 @@ def get_price():
         room_type = content['room_type_']
         amenities = content['Amenities']
         
-        response_rate = content['host_response_rate_']
+        response_rate = 100 # content['host_response_rate_']
         review_rate = content['review_scores_rating']
         
-        acc_rate = content['review_accuracy_rating']
+        acc_rate = 10 #content['review_accuracy_rating']
         clean_rate = content['review_cleanliness_rating']
-        check_rate = content['review_checkin_rating']
-        comm_rate = content['review_communication_rating']
+        check_rate = 10 #content['review_checkin_rating']
+        comm_rate = 10 #content['review_communication_rating']
         loc_rate = content['review_location_rating']
-        value_rate = content['review_value_rating']
+        value_rate = 10 #content['review_value_rating']
         
         scores = [acc_rate,clean_rate,check_rate,comm_rate,loc_rate,value_rate]
 

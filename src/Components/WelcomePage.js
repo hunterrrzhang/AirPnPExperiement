@@ -56,7 +56,7 @@ const WelcomePage = (props) => {
                     <Text style={{'font-size': '16px'}}>AirPnP is a machine learning algorithm that helps you to optimally price your listing after considering a multitude of factors such as location, amenities, beds, rooms, competitors, ratings and more</Text>
 
                     {/* <Text style={{'font-size': '16px'}}>We are providing a machine learning algorithm that helps you to optimally price your listing</Text> */}
-                    <Button type="primary" style={{'margin-top': '7%'}} onClick={() => props.changeFormView(!props.formView)}>Click here to start</Button>
+                    <Button type="primary" style={{'margin-top': '7%', 'margin-bottom': '30%'}} onClick={() => props.changeFormView(!props.formView)}>Click here to start</Button>
                 </Space>
                 <br/>
             </div>

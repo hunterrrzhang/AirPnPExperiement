@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     padding-top: 4%; 
-    padding-left: 20%; 
-    padding-right: 20%; 
+    padding-left: 15%; 
+    padding-right: 15%; 
 
     margin: 0%;
     /* visibility: hidden; */
@@ -22,6 +22,6 @@
     margin-top: 3%;
 }
 
-.question{
-    font-size: 14px;
+.questions{
+    font-size: 15px;
 }

@@ -51,7 +51,10 @@ const QuestionForm = () => {
 
 
     const onFinish = (values) => {
-        console.log('Received values of form: ', values);
+        // result = values
+        // result['availability_90'] = true
+        console.log('Received values of form result: ', values);
+        console.log(values['host_is_superhost'])
         fetch('/api/get_price', {
             method: 'POST', // or 'PUT'
             headers: {
@@ -85,7 +88,7 @@ const QuestionForm = () => {
             'checkbox-group': [],
             host_identity_verified: false,
             host_is_superhost: false,
-            availability_90: false
+            // availability_90: false
         }}
     >
         <Form.Item label="" wrapperCol={{
@@ -132,7 +135,7 @@ const QuestionForm = () => {
             </Select>
         </Form.Item>
 
-        <Form.Item name="host_identity_verified" label="Is your identify verified on Airbnb?" valuePropName="checked" rules={[{required: true},]}>
+        <Form.Item name="host_identity_verified" label="Are you a verified host on Airbnb?" valuePropName="checked" rules={[{required: true},]}>
             <Switch/>
         </Form.Item>
 
@@ -140,16 +143,16 @@ const QuestionForm = () => {
             <Switch />
         </Form.Item>
 
-        <Form.Item name="availability_90" label="Is this listing available in the next 90 days?" valuePropName="checked" rules={[{required: true},]}>
+        {/* <Form.Item name="availability_90" label="Is this listing available in the next 90 days?" valuePropName="checked" rules={[{required: true},]}>
             <Switch />
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item label="How many total listing do you have on Airbnb?">
+        {/* <Form.Item label="How many total listing do you have on Airbnb?">
             <Form.Item name="host_listings_count" noStyle  rules={[{required: true},]}>
                 <InputNumber min={1} max={50} />
             </Form.Item>
             <span className="ant-form-text"> listing(s)</span>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item label="How many people does it accomodates?">
             <Form.Item name="accommodates" noStyle  rules={[{required: true},]}>
@@ -172,7 +175,7 @@ const QuestionForm = () => {
             <span className="ant-form-text"> listing(s)</span>
         </Form.Item>
 
-        <Form.Item label="Minimum nights">
+        {/* <Form.Item label="Minimum nights">
             <Form.Item name="minimum_nights" noStyle  rules={[{required: true},]}>
                 <InputNumber min={1} max={50} />
             </Form.Item>
@@ -184,7 +187,7 @@ const QuestionForm = () => {
                 <InputNumber min={1} max={50} />
             </Form.Item>
             <span className="ant-form-text"> listing(s)</span>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item label="Number of reviews you have">
             <Form.Item name="number_of_reviews" noStyle  rules={[{required: true},]}>
@@ -193,7 +196,7 @@ const QuestionForm = () => {
             <span className="ant-form-text"> listing(s)</span>
         </Form.Item>
 
-        <Form.Item name="host_response_rate_" label="What's your response rate?" rules={[{required: true},]}>
+        {/* <Form.Item name="host_response_rate_" label="What's your response rate?" rules={[{required: true},]}>
             <Slider
                 marks={{
                     0: '0%',
@@ -204,9 +207,9 @@ const QuestionForm = () => {
                     100: '100%',
                 }}
             />
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item name="review_scores_rating" label="What's your listing's overall rating score?" rules={[{required: true},]}>
+        <Form.Item name="review_scores_rating" label="What's the listing's overall rating?" rules={[{required: true},]}>
             <Slider
                 marks={{
                     0: '0',
@@ -219,7 +222,7 @@ const QuestionForm = () => {
             />
         </Form.Item>
 
-        <Form.Item name="review_accuracy_rating" label="What's your listing's accuracy rating score?" rules={[{required: true},]}>
+        <Form.Item name="review_accuracy_rating" label="What's the listing's accuracy rating?" rules={[{required: true},]}>
             <Slider min={0} max={10}
                 marks={{
                     0: '0',
@@ -232,7 +235,7 @@ const QuestionForm = () => {
             />
         </Form.Item>
 
-        <Form.Item name="review_cleanliness_rating" label="What's your listing's cleanliness rating score?" rules={[{required: true},]}>
+        <Form.Item name="review_cleanliness_rating" label="What's the listing's cleanliness rating?" rules={[{required: true},]}>
             <Slider min={0} max={10}
                 marks={{
                     0: '0',
@@ -245,7 +248,33 @@ const QuestionForm = () => {
             />
         </Form.Item>
 
-        <Form.Item name="review_checkin_rating" label="What's your listing's checkin rating score?" rules={[{required: true},]}>
+        {/* <Form.Item name="review_checkin_rating" label="What's your listing's checkin rating score?" rules={[{required: true},]}>
+            <Slider min={0} max={10}
+                marks={{
+                    0: '0',
+                    2: '2',
+                    4: '4',
+                    6: '6',
+                    8: '8',
+                    10: '10',
+                }}
+            />
+        </Form.Item> */}
+
+        {/* <Form.Item name="review_communication_rating" label="What's your listing's communication rating score?" rules={[{required: true},]}>
+            <Slider min={0} max={10}
+                marks={{
+                    0: '0',
+                    2: '2',
+                    4: '4',
+                    6: '6',
+                    8: '8',
+                    10: '10',
+                }}
+            />
+        </Form.Item> */}
+
+        <Form.Item name="review_location_rating" label="What's the listing's location rating?" rules={[{required: true},]}>
             <Slider min={0} max={10}
                 marks={{
                     0: '0',
@@ -258,7 +287,7 @@ const QuestionForm = () => {
             />
         </Form.Item>
 
-        <Form.Item name="review_communication_rating" label="What's your listing's communication rating score?" rules={[{required: true},]}>
+        {/* <Form.Item name="review_value_rating" label="What's your listing's value rating score?" rules={[{required: true},]}>
             <Slider min={0} max={10}
                 marks={{
                     0: '0',
@@ -269,33 +298,7 @@ const QuestionForm = () => {
                     10: '10',
                 }}
             />
-        </Form.Item>
-
-        <Form.Item name="review_location_rating" label="What's your listing's location rating score?" rules={[{required: true},]}>
-            <Slider min={0} max={10}
-                marks={{
-                    0: '0',
-                    2: '2',
-                    4: '4',
-                    6: '6',
-                    8: '8',
-                    10: '10',
-                }}
-            />
-        </Form.Item>
-
-        <Form.Item name="review_value_rating" label="What's your listing's value rating score?" rules={[{required: true},]}>
-            <Slider min={0} max={10}
-                marks={{
-                    0: '0',
-                    2: '2',
-                    4: '4',
-                    6: '6',
-                    8: '8',
-                    10: '10',
-                }}
-            />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item name="host_response_time_" label="How quickly do you usually respond to your client?" rules={[{required: true},]}>
             <Radio.Group>
@@ -307,7 +310,7 @@ const QuestionForm = () => {
             </Radio.Group>
         </Form.Item>
 
-        <Form.Item name="time_since_first_review_" label="Time since its first customer review?" rules={[{required: true},]}>
+        {/* <Form.Item name="time_since_first_review_" label="Time since its first customer review?" rules={[{required: true},]}>
             <Radio.Group>
                 <Radio value="time_since_first_review_0-6 months">0-6 months</Radio>
                 <Radio value="time_since_first_review_6-12 months">6-12 months</Radio>
@@ -325,7 +328,7 @@ const QuestionForm = () => {
                 <Radio value="time_since_last_review_6-12 months">6-12 months</Radio>
                 <Radio value="time_since_last_review_1+ year">1+ year</Radio>
             </Radio.Group>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item name="Amenities" label="Amenities" rules={[{required: true},]}>
             <Checkbox.Group>
